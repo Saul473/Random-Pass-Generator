@@ -1,4 +1,6 @@
 // Assignment Code
+//var generateBtn = document.querySelector("#generate");
+//generateBtn.addEventListener("click", writePassword);
 var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);
 
@@ -24,6 +26,18 @@ function generatePassword() {
   return password;
 }
 
+
+// Write password to the #password input
+function writePassword() { 
+  var newPassword = getPrompts();
+  var passwordText = document.querySelector("#password");
+  if (newPassword) {
+    var password = generatePassword();
+    passwordText.value = password; 
+  } else {
+    passwordText.value = "";
+  }
+}
 
 //prompts
 function getPrompts() {
@@ -52,18 +66,4 @@ function getPrompts() {
     choices = choices.concat(specialCharacters);
   }
   return true;
-}
-
-// Write password to the #password input
-function writePassword() {
-  getPrompts(); 
-  var passwordText = document.querySelector("#password");
-
-  if (getPrompts = true) {
-    var password = generatePassword();
-    passwordText.value = password;
-  } else {
-    passwordText.value = "";
-  }
-
 }
